@@ -31,8 +31,8 @@ public class SwaggerConfig {
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title("Commission Microservice")
-                .description("Commission Microservice")
+        return new ApiInfoBuilder().title("Commission Calculation Microservice")
+                .description("Commission Calculation Microservice")
                 .build();
     }
 }
