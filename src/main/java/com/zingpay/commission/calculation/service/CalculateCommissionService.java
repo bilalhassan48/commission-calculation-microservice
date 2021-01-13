@@ -28,13 +28,7 @@ public class CalculateCommissionService {
         int totalFeePercentage = calculateCommissionDtoStream.findFirst().get().getFee();
         double totalCommissionAmount = totalFeePercentage * transactionDto.getAmount() / 100;
 
-        double zingpayCommissionPercent = 100;
-
-        for (CalculateCommissionDto calculateCommissionDto : calculateCommissionDtos) {
-            if(!calculateCommissionDto.getFeeGroupName().contains("DEFAULT") && !calculateCommissionDto.getFeeGroupName().contains("ZINGPAY")) {
-                zingpayCommissionPercent = zingpayCommissionPercent - calculateCommissionDto.getFee();
-            }
-        }
+        double zingpayCommissionPercent = calculateZingpayCommissionPercentage(calculateCommissionDtos);
 
         for (CalculateCommissionDto calculateCommissionDto : calculateCommissionDtos) {
             if(!calculateCommissionDto.getFeeGroupName().contains("DEFAULT")) {
@@ -67,5 +61,16 @@ public class CalculateCommissionService {
         }
 
         return transactionDtos;
+    }
+
+    private double calculateZingpayCommissionPercentage(List<CalculateCommissionDto> calculateCommissionDtos) {
+        double zingpayCommissionPercent = 100;
+
+        for (CalculateCommissionDto calculateCommissionDto : calculateCommissionDtos) {
+            if(!calculateCommissionDto.getFeeGroupName().contains("DEFAULT") && !calculateCommissionDto.getFeeGroupName().contains("ZINGPAY")) {
+                zingpayCommissionPercent = zingpayCommissionPercent - calculateCommissionDto.getFee();
+            }
+        }
+        return zingpayCommissionPercent;
     }
 }
