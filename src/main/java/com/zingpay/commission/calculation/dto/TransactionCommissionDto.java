@@ -15,4 +15,5 @@ import java.util.List;
 public class TransactionCommissionDto {
     private TransactionDto transactionDto;
     private List<CalculateCommissionDto> calculateCommissionDtos;
+    private List<AppUserDtoForCommission> appUserDtoForCommissions;
 }

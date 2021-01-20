@@ -13,4 +13,5 @@ import lombok.Setter;
 public class CalculateCommissionDto {
     private int fee;
     private String feeGroupName;
+    private int feeType;
 }
