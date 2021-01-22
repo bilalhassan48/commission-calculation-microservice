@@ -142,3 +142,10 @@
 /.idea/libraries/Maven__org_springframework_security_spring_security_rsa_1_0_9_RELEASE.xml
 /target/classes/com/zingpay/commission/calculation/dto/TransactionCommissionDto.class
 /target/classes/com/zingpay/commission/calculation/dto/AppUserDtoForCommission.class
+/target/classes/com/zingpay/commission/calculation/dto/LoginResponse.class
+/target/classes/com/zingpay/commission/calculation/feign/ZingPayServiceClient.class
+/target/classes/com/zingpay/commission/calculation/rabbitmq/RabbitMQConsumer.class
+/target/classes/com/zingpay/commission/calculation/util/Utils$1.class
+/target/classes/com/zingpay/commission/calculation/util/Utils$CommonFunctions.class
+/target/classes/com/zingpay/commission/calculation/util/Utils.class
+/target/classes/com/zingpay/commission/calculation/TokenGenerator.class
