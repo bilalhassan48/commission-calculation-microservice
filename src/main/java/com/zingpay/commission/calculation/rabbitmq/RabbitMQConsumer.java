@@ -1,11 +1,11 @@
 package com.zingpay.commission.calculation.rabbitmq;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.zingpay.commission.calculation.TokenGenerator;
 import com.zingpay.commission.calculation.dto.TransactionCommissionDto;
 import com.zingpay.commission.calculation.dto.TransactionDto;
 import com.zingpay.commission.calculation.feign.ZingPayServiceClient;
 import com.zingpay.commission.calculation.service.CalculateCommissionService;
+import com.zingpay.commission.calculation.token.TokenGenerator;
 import feign.FeignException;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

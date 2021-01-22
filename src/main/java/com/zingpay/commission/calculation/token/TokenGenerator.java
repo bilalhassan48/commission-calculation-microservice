@@ -1,4 +1,4 @@
-package com.zingpay.commission.calculation;
+package com.zingpay.commission.calculation.token;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.zingpay.commission.calculation.dto.LoginResponse;
