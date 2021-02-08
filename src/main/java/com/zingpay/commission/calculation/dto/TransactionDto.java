@@ -1,12 +1,14 @@
 package com.zingpay.commission.calculation.dto;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.zingpay.commission.calculation.entity.Transaction;
 import com.zingpay.commission.calculation.util.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author Bilal Hassan on 12-Jan-21
@@ -37,7 +39,44 @@ public class TransactionDto implements Serializable {
 
     private boolean success;
 
-    public static TransactionDto  convertJSONStringToDto(String jsonString) {
+    public static Transaction convertToEntity(TransactionDto transactionDto) {
+        Transaction transaction = new Transaction();
+        transaction.setId(transactionDto.getId());
+        transaction.setAccountId(transactionDto.getAccountId());
+        transaction.setServiceId(transactionDto.getServiceId());
+        if(transactionDto.getTransactionStatus() != null) {
+            transaction.setTransactionStatusId(transactionDto.getTransactionStatus().getId());
+        }
+        if(transactionDto.getTransactionType() != null) {
+            transaction.setTransactionTypeId(transactionDto.getTransactionType().getId());
+        }
+        if(transactionDto.getZingpayTransactionType() != null) {
+            transaction.setZingpayTransactionTypeId(transactionDto.getZingpayTransactionType().getId());
+        }
+        if(transactionDto.getChannelType() != null) {
+            transaction.setChannelTypeId(transactionDto.getChannelType().getId());
+        }
+        transaction.setRetailerRefNumber(transactionDto.getRetailerRefNumber());
+        transaction.setAmount(transactionDto.getAmount());
+        transaction.setServiceProvider(transactionDto.getServiceProvider());
+        transaction.setDescription(transactionDto.getDescription());
+        transaction.setRefFrom(transactionDto.getRefFrom());
+        transaction.setRefTo(transactionDto.getRefTo());
+        transaction.setDateTime(transactionDto.getDateTime());
+        transaction.setBillingMonth(transactionDto.getBillingMonth());
+
+        return transaction;
+    }
+
+    public static List<Transaction> convertToEntity(List<TransactionDto> transactionDtos) {
+        List<Transaction> transactions = new ArrayList<Transaction>();
+        transactionDtos.forEach(transactionDto -> {
+            transactions.add(convertToEntity(transactionDto));
+        });
+        return transactions;
+    }
+
+    /*public static TransactionDto  convertJSONStringToDto(String jsonString) {
         TransactionDto transactionDto = new TransactionDto();
         try {
             transactionDto = Utils.parseToObject(jsonString, TransactionDto.class);
@@ -61,5 +100,5 @@ public class TransactionDto implements Serializable {
         }
 
         return transactionDto;
-    }
+    }*/
 }

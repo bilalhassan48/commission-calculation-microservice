@@ -543,4 +543,8 @@ public class Utils {
     public static JsonNode parseStringToJsonNode(String toConvert) throws JsonProcessingException {
         return json.readValue(toConvert, JsonNode.class);
     }
+
+    public static double formatAmount(String amount) {
+        return Double.parseDouble(TWO_DECIMAL_POINT_FORMAT.format(Double.parseDouble(amount)));
+    }
 }
