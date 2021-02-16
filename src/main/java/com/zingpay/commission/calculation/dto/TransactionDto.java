@@ -1,7 +1,10 @@
 package com.zingpay.commission.calculation.dto;
 
 import com.zingpay.commission.calculation.entity.Transaction;
-import com.zingpay.commission.calculation.util.*;
+import com.zingpay.commission.calculation.util.ChannelType;
+import com.zingpay.commission.calculation.util.TransactionStatus;
+import com.zingpay.commission.calculation.util.TransactionType;
+import com.zingpay.commission.calculation.util.ZingpayTransactionType;
 import lombok.Getter;
 import lombok.Setter;
 
